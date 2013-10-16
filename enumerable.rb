@@ -1,38 +1,38 @@
-# Warm-up
+# # Warm-up
 
-# Using the .each method with an array
+# # Using the .each method with an array
 
-students = %w[ Venvictor Garrett Joe Chance Laurent Katie Abdulla Erinn Pete Jack Parag ]
+# students = %w[ Venvictor Garrett Joe Chance Laurent Katie Abdulla Erinn Pete Jack Parag ]
 
-# %w is a short-hand way to create an array of strings. Each string is created based on the spaces.
+# # %w is a short-hand way to create an array of strings. Each string is created based on the spaces.
 
-puts "\nShowing names using an each loop in a do end block.."
+# puts "\nShowing names using an each loop in a do end block.."
 
-students.each do |student|
-  puts "#{student}"
-end
+# students.each do |student|
+#   puts "#{student}"
+# end
 
 
-# Using the .each method with the one liner block syntax
+# # Using the .each method with the one liner block syntax
 
-puts "\nShowing names using an each loop in a one-line block.."
+# puts "\nShowing names using an each loop in a one-line block.."
 
-students.each { |student| puts "#{student}" }
+# students.each { |student| puts "#{student}" }
 
-# { is the same as do
-# } is the same as end
+# # { is the same as do
+# # } is the same as end
 
-# Using the .each method with a hash
+# # Using the .each method with a hash
 
-student = { "name" => "Vincent Cabansag", "email" => "vince@starterleague.com", "twitter" => "@vcabansag" }
+# student = { "name" => "Vincent Cabansag", "email" => "vince@starterleague.com", "twitter" => "@vcabansag" }
 
-# Accessing the twitter key in the hash will return the corresponding value
+# # Accessing the twitter key in the hash will return the corresponding value
 
-student["twitter"]
+# student["twitter"]
 
-student.each do |key, value|
-  puts "#{key}: #{value}"
-end
+# student.each do |key, value|
+#   puts "#{key}: #{value}"
+# end
 
 
 
@@ -68,6 +68,14 @@ states = {"Chicago" => "Illinois", "Freeport" => "Illinois", "Skokie" => "Illino
 #  Jeff Cohen is from Skokie, Illinois.
 #  Raghu Betina is from Goshen, Indiana.
 #  Vince Cabansag is from Sturgis, Michigan.
+
+students.each do |each_student|
+
+puts "#{each_student["first"]} #{each_student["last"]} is from #{each_student["hometown"]}, #{states[each_student["hometown"]]}"
+  end
+
+
+
 
 
 
@@ -106,6 +114,16 @@ car_lot = [{:company => "Ford", :type => "SUV"},
            {:company => "Toyota", :type => "SUV"}]
 
 
+sedan = car_lot.select do |car|
+
+   car[:type] == "Sedan"
+
+end
+
+puts "#{sedan[":company"]}"
+puts "I checked the car lot and we have #{sedan.count} sedans"
+
+
 # Use the array of hashes above with the select and/or reject methods
 # Try using the count method and display output like following.
 
@@ -114,10 +132,25 @@ car_lot = [{:company => "Ford", :type => "SUV"},
 # "I checked the car lot and we have 5 sedans."
 # "Here's the manufacturers for each of those sedans:"
 # "Honda, Volkswagen, Ferrari, BMW, Porsche"
-
+mystring = ""
+sedan.each do |car|
+    mystring << "#{car[:company]},"
+end
+puts mystring
 # "We also have 2 SUVs. They're made by:""
 # "Ford and Toyota"
 
+SUV = car_lot.select do |car|
+    car[:type] == "SUV"
+end
+
+puts "We also have #{SUV.count} SUVs"
+
+mystring = ""
+SUV.each do |car|
+mystring << "#{car[:company]} and "
+end
+puts mystring
 
 
 
@@ -136,12 +169,19 @@ car_lot = [{:company => "Ford", :type => "SUV"},
 tsl_team = [{ :name => "Vince", :twitter => "vcabansag" },
             { :name => "Raghu", :twitter => "rebtina717" },
             { :name => "Jeff", :twitter => "jeffcohen" },
-            { :name => "Caity", :twitter => "caitymoran" }
+            { :name => "Caity", :twitter => "caitymoran" },
             { :name => "Neal", :twitter => "nealsales" },
             { :name => "Arvin", :twitter => "arvindang" },
             { :name => "Mike", :twitter => "michaelmcgee" }]
 
 # Use the array of hashes above with the collect method to display the following output:
+
+twitter_handles = tsl_team.collect do |people|
+   "@#{people[:twitter]}"
+end
+
+puts twitter_handles
+
 
 # OUTPUT
 
@@ -198,6 +238,12 @@ club_cubby = %w[ guy gal guy gal guy gal guy guy gal
 # Try using conditionals
 
 # OUTPUT
+
+BroTrue = club_paris.detect do |people|
+   people == "it"
+  end
+
+puts BroTrue
 
 # For each club, display whether you see a "bro" or if the coast is clear.
 
