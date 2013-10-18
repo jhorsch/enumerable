@@ -59,12 +59,14 @@ puts twithandles
 puts "---------Challenge 3----------"
 
 #Create new array with student that have full info
-active_students = STUDENTS.select  do |student|
+
+ = STUDENTS.select  do |student|
      student["blog"] != nil && student["github"] != nil
 end
 
 #Loop through new array and print info
-active_students.each do |student|
+
+.each do |student|
 
   puts "name: #{student["first_name"]} #{student["last_name"]}"
   puts "twitter: @#{student["twitter"]}"
@@ -76,7 +78,8 @@ active_students.each do |student|
 end
 
 puts "There are #{STUDENTS.count} total students"
-puts "There are #{active_students.count} active students"
+puts "There are #{
+.count} active students"
 
 # CHALLENGE 4
 
@@ -85,9 +88,11 @@ puts "There are #{active_students.count} active students"
 
 puts "---------Challenge 4----------"
 
-# active_students.each do |student|
+#
+.each do |student|
 
-active_students.each do |student|
+
+.each do |student|
   student.keys.each do |key|
     puts "#{key.gsub(/[_]/," ")}: #{student[key]}"
   end
@@ -138,6 +143,13 @@ end
 print "Enter first name:  "
 username = gets.chomp.capitalize
 show_student_details2(username)
+
+"jeff"
+
+
+
+
+
 
 
 
